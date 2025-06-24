@@ -1,0 +1,46 @@
+.container {
+    display: flex;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Фон на весь экран */
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/images/home/backgound-image.svg') no-repeat center center;
+    background-size: cover;
+    z-index: 0;
+}
+
+/* Левая область, занимает всё кроме маски */
+.left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+/* Логотип — центрируется в доступной области и масштабируется пропорционально */
+.logo {
+    width: 100%;
+    aspect-ratio: 456 / 323;
+    background: url('/images/home/Logo.svg') no-repeat center center;
+    background-size: contain;
+}
+
+/* Маска справа, не сжимается, всегда видна */
+.mask {
+    width: auto;
+    height: 100%;
+    aspect-ratio: 423 / 542;
+    background: url('/images/home/mask-image.png') no-repeat right center;
+    background-size: contain;
+    z-index: 1;
+}

@@ -1,0 +1,30 @@
+/* styles/globals.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+:root {
+    --bg-dark: #0f0f0f;
+    --text-light: #ffffff;
+    --text-gold: radial-gradient(50% 230.59% at 50% 50%, #A97211 0%, #AD872E 25%, #AF913D 37.5%, #B09644 43.75%, #B19B4B 50%, #D3BE61 75%, #F4E077 100%);;
+    --sidebar-width: 250px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    overflow-x: hidden;
+}
+
+main {
+    min-height: 100vh;
+}
