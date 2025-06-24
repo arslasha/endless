@@ -1,0 +1,184 @@
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.bg {
+    position: absolute;
+    inset: 0;
+    background: url('/images/resume/bg-resume.png') no-repeat center center;
+    background-size: cover;
+    background-color: #0f0f0f;
+    z-index: 0;
+}
+
+.contentWrapper {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+    padding: 4vw;
+}
+
+/* Секция 1 */
+.section1 {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 70%;
+}
+
+.titleGradient {
+    font-family: 'Inter', sans-serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 48px;
+    background: radial-gradient(50% 230.59% at 50% 50%, #A97211 0%, #AD872E 25%, #AF913D 37.5%, #B09644 43.75%, #B19B4B 50%, #D3BE61 75%, #F4E077 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.subtitle {
+    font-family: 'Inter', sans-serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 40px;
+    color: #fff;
+    max-width: 95%;
+}
+
+.block {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    gap: 30px;
+    padding-left: 20px;
+}
+
+.imageBlock {
+    width: 389px;
+    height: 160px;
+    background: url('/images/resume/image1.png') no-repeat center center;
+    background-size: cover;
+}
+
+.textOverlay {
+    position: absolute;
+    left: 40px;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #fff;
+    z-index: 1;
+}
+
+.highlighted {
+    position: absolute;
+    left: 426px;
+    top: 40px;
+    width: 203px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 19px;
+    background: radial-gradient(50% 230.59% at 50% 50%, #A97211 0%, #AD872E 25%, #AF913D 37.5%, #B09644 43.75%, #B19B4B 50%, #D3BE61 75%, #F4E077 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+/* Секция 2 */
+.section2 {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 70%;
+    margin-left: 10vw;
+}
+
+.section2Title {
+    font-family: 'Inter', sans-serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 40px;
+    color: #fff;
+}
+
+.section2Text {
+    position: relative;
+    background: url('/images/resume/image2.png') no-repeat center center;
+    background-size: cover;
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #fff;
+}
+
+/* Мобильный адаптив */
+@media (max-width: 768px) {
+    .contentWrapper {
+        padding: 20px;
+        gap: 30px;
+    }
+
+    .section1,
+    .section2 {
+        max-width: 100%;
+        margin-left: 0;
+    }
+
+    .titleGradient,
+    .subtitle,
+    .section2Title {
+        font-size: 24px;
+        line-height: 1.2;
+    }
+
+    .textOverlay {
+        position: static;
+        font-size: 13px;
+    }
+
+    .highlighted {
+        position: static;
+        font-size: 13px;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .block {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .section2Text {
+        flex-direction: column;
+        font-size: 13px;
+    }
+
+    .imageBlock {
+        width: 100%;
+        height: 160px;
+    }
+}

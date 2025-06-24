@@ -1,3 +1,5 @@
+/*src/app/about/style.module.css*/
+
 .container {
     position: relative;
     width: 100vw;
@@ -5,32 +7,19 @@
     overflow: hidden;
 }
 
-/* Фоновое изображение */
 .bg_about {
     position: absolute;
     width: 100vw;
     height: 100vh;
-    top: 0;
-    left: 0;
     background: url('/images/about/bg_about.png') no-repeat center center;
     background-size: cover;
     background-color: #0f0f0f;
     z-index: 0;
 }
 
-.sections {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    padding-bottom: 60px;
-    padding-left: 5vw;
-    max-width: 60vw;
-}
-
-/* Общий стиль секций */
 .section {
     position: absolute;
-    max-width: 60vw;
+    max-width: 700px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -38,7 +27,6 @@
     padding: 40px;
 }
 
-/* Позиции */
 .sectionTopLeft {
     top: 0;
     left: 0;
@@ -52,41 +40,65 @@
     text-align: right;
 }
 
-/* Заголовок секции */
 .sectionTitle {
     font-family: 'Inter', sans-serif;
     font-style: italic;
     font-weight: 300;
-    font-size: 3.2vw;
+    font-size: 44px;
     line-height: 1.2;
     color: #fff;
-    max-width: 50vw;
+}
+
+.subheading {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 22px;
+    background: radial-gradient(50% 230.59% at 50% 50%, #A97211 0%, #AD872E 25%, #AF913D 37.5%, #B09644 43.75%, #B19B4B 50%, #D3BE61 75%, #F4E077 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 1.4;
+    color: #ffffff;
 }
 
 .boldLetter {
     font-weight: 700;
 }
 
-/* Подзаголовок */
-.subheading {
-    font-family: 'Inter', sans-serif;
-    font-weight: 300;
-    font-size: 1.6vw;
-    line-height: 1.2;
-    background: radial-gradient(50% 230.59% at 50% 50%, #A97211 0%, #AD872E 25%, #AF913D 37.5%, #B09644 43.75%, #B19B4B 50%, #D3BE61 75%, #F4E077 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-    max-width: 60vw;
+/* Media */
+
+@media (max-width: 768px) {
+    .sectionTitle {
+        font-size: 28px;
+    }
+
+    .subheading {
+        font-size: 16px;
+    }
+
+    .text {
+        font-size: 16px;
+    }
 }
 
-/* Основной текст */
-.text {
-    font-family: 'Inter', sans-serif;
-    font-weight: 300;
-    font-size: 1.5vw;
-    line-height: 1.4;
-    color: #ffffff;
-    max-width: 60vw;
+
+@media (max-width: 430px) {
+    .sectionTitle {
+        font-size: 25px;
+    }
+
+    .subheading {
+        font-size: 13px;
+    }
+
+    .text {
+        font-size: 13px;
+    }
 }

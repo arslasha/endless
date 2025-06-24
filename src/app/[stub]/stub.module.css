@@ -1,7 +1,7 @@
 .container {
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(160deg, #0f0f0f, #1c1c1c);
+    background: linear-gradient(160deg, #1F2B56, #0f0f0f); /* синий градиент */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,28 +12,46 @@
 }
 
 .title {
-    font-size: 3vw;
+    font-size: 48px;
     font-weight: 700;
     margin-bottom: 1rem;
 }
 
 .subtitle {
-    font-size: 1.2vw;
+    font-size: 20px;
+    font-weight: 300;
     margin-bottom: 2rem;
+    max-width: 600px;
 }
 
 .button {
     padding: 0.8rem 2rem;
-    background: #ffffff10;
-    border: 1px solid #ffffff40;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     color: white;
     text-decoration: none;
     border-radius: 8px;
-    font-size: 1vw;
+    font-size: 16px;
     transition: all 0.3s ease;
 }
 
 .button:hover {
-    background: #ffffff20;
-    border-color: #ffffff60;
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Мобильный адаптив */
+@media (max-width: 768px) {
+    .title {
+        font-size: 28px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+    }
+
+    .button {
+        font-size: 14px;
+        padding: 0.6rem 1.5rem;
+    }
 }
