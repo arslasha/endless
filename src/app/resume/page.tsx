@@ -13,17 +13,15 @@ export default function ResumePage() {
                     {/* Секция 1 */}
                     <div className={styles.section1}>
                         <div className={styles.titleGradient}>ENDLESS -</div>
-                        <div className={styles.subtitle}>ЭТО ИСКУССТВО, ВОПЛОЩЕННОЕ В ВАШЕЙ РЕАЛЬНОСТИ</div>
+                        <div className={styles.subtitle}>ЭТО <span className={styles.boldLetter}>И</span>СКУССТВО, ВОПЛОЩЕННОЕ В ВАШЕЙ <span className={styles.boldLetter}>Р</span>ЕАЛЬНОСТИ
+                        </div>
 
                         <div className={styles.block}>
-                            <div className={styles.imageBlock} />
-
                             <div className={styles.textOverlay}>
                                 <p>Захватывающий сценарий, неожиданные сюжетные повороты, мастерская работа со светом и звуком.</p>
                                 <p>Полное перевоплощение в руках лучших костюмеров и гримеров.</p>
                                 <p>Аплодисменты восхищенной публики. Смелые творческие решения и тонкая режиссура.</p>
                             </div>
-
                             <div className={styles.highlighted}>
                                 ВЫ МЕЧТАЛИ ОБ ЭТОМ,<br />НО НЕ ОСМЕЛИВАЛИСЬ СКАЗАТЬ ВСЛУХ.<br />ТЕПЕРЬ ЭТО ВОЗМОЖНО.
                             </div>
@@ -33,7 +31,8 @@ export default function ResumePage() {
                     {/* Секция 2 */}
                     <div className={styles.section2}>
                         <div className={styles.section2Title}>
-                            ВАША РЕАЛЬНОСТЬ – ЭТО ТЕАТР, СОЗДАННЫЙ ВАМИ
+                            <span className={styles.boldLetter}>Н</span>Е ПРОСТО СМОТРЕТЬ – <span className={styles.boldLetter}>Т</span>ВОРИТЬ <br/>
+                            <span className={styles.boldLetter}>Н</span>Е ТОЛЬКО ИГРАТЬ – <span className={styles.boldLetter}>С</span>ОЗДАВАТЬ
                         </div>
 
                         <div className={styles.section2Text}>

@@ -12,7 +12,9 @@ export default function CinemaFormat() {
                 <div className={styles.contentWrapper}>
                     {/* Левая верхняя секция */}
                     <div className={styles.leftSection}>
-                        <div className={styles.title}>ФОРМАТ КИНО</div>
+                        <div className={styles.title}><span className={styles.boldLetter}>Ф</span>ОРМАТ <span
+                            className={styles.boldLetter}>K</span>ИНО
+                        </div>
 
                         <div className={styles.subheading}>
                             МЫ СОЗДАЕМ ПЕРСОНАЛЬНЫЕ
@@ -44,10 +46,7 @@ export default function CinemaFormat() {
                     <div className={styles.rightSection}>
                         <div className={styles.rightSubheading}>НО В ФИНАЛЕ ЗРИТЕЛИ ПОНИМАЮТ:</div>
                         <div className={styles.rightText}>
-                            ЭТО НЕ ПРОСТО
-                            КИНО
-                            ЭТО — ЛИЧНЫЙ
-                            ПОДАРОК
+                            ЭТО НЕ ПРОСТО <span className={styles.boldLetter}>K</span>ИНО ЭТО — <span className={styles.boldLetter}>Л</span>ИЧНЫЙ <span className={styles.boldLetter}>П</span>ОДАРОК
                         </div>
                     </div>
                 </div>

@@ -1,13 +1,11 @@
-// components/Sidebar/Sidebar.tsx
 'use client';
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import styles from './Sidebar.module.css';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
-
-// список навигации
 const navItems = [
     { title: 'Форматы', path: '/formats' },
     { title: 'Персональный спектакль', path: '/personal-performance' },
@@ -23,14 +21,36 @@ export default function Sidebar() {
     const [isOpen, setIsOpen] = useState(false);
     const router = useRouter();
 
-    const toggleMenu = () => setIsOpen(!isOpen);
+    const toggleMenu = () => setIsOpen(prev => !prev);
+
+    const goHome = () => {
+        router.push('/');
+        setIsOpen(false);
+    };
 
     return (
         <div className={styles.sidebarWrapper}>
-            <div className={styles.toggleArea} onClick={toggleMenu}>
-                <img src="/icons/endless-logo.svg" alt="Endless Logo" width={100} height={100} />
-                <button className={styles.menuButton}>
-                    <img src={isOpen ? '/icons/close-icon.svg' : '/icons/menu-icon.svg'} alt="menu toggle" width={24} height={24} />
+            <div className={styles.toggleArea}>
+                {/* Логотип: кликабелен, ведёт на главную */}
+                <div className={styles.logo} onClick={goHome}>
+                    <Image
+                        src="/icons/endless-logo.svg"
+                        alt="Endless Logo"
+                        width={100}
+                        height={100}
+                        priority
+                        style={{ cursor: 'pointer', height: 'auto', width: '100px' }}
+                    />
+                </div>
+
+                {/* Кнопка меню */}
+                <button className={styles.menuButton} onClick={toggleMenu}>
+                    <Image
+                        src={isOpen ? '/icons/close-icon.svg' : '/icons/menu-icon.svg'}
+                        alt="Menu Toggle"
+                        width={24}
+                        height={24}
+                    />
                 </button>
             </div>
 

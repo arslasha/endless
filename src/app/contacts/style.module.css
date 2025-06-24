@@ -1,0 +1,78 @@
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Фон */
+.bg {
+    position: absolute;
+    inset: 0;
+    background: url('/images/contacts/bg_contacts.png') no-repeat center center;
+    background-size: cover;
+    background-color: #0f0f0f;
+    z-index: 0;
+}
+
+/* Обёртка под все элементы */
+.contactBlock {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding-left: 6vw;
+    padding-top: 20vh;
+    width: fit-content;
+}
+
+/* Логотип и подчеркивание */
+.logoWrapper {
+    position: relative;
+    width: fit-content;
+}
+
+.logo {
+    height: auto;
+    max-width: 370px;
+    width: 100%;
+}
+
+.underline {
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background: white;
+}
+
+/* Телефон */
+.phone {
+    margin-top: 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.phone:hover {
+    background: radial-gradient(50% 230.59% at 50% 50%, #A97211 0%, #AD872E 25%, #AF913D 37.5%, #B09644 43.75%, #B19B4B 50%, #D3BE61 75%, #F4E077 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+/* Надпись Time to show */
+.signature {
+    font-family: 'Bon Vivant', 'Bonheur Royale', cursive;
+    font-size: 70px;
+    line-height: 81px;
+    color: #172146;
+    margin-top: 30px;
+}
