@@ -16,7 +16,8 @@ export default function Formats() {
                         <div className={styles.sectionTitle}><span className={styles.boldLetter}>Ф</span>ОРМАТЫ</div>
                     </div>
                     <div className={styles.sectionContent}>
-                        <div className={styles.bullet}>Эксклюзивное театральное шоу</div>
+                        <div className={styles.bullet}>Эксклюзивное театральное шоу
+                            по оригинальному сценарию</div>
                         <div className={styles.bullet}>Иммерсивное шоу, в котором гости становятся участниками
                             постановки
                         </div>
@@ -31,8 +32,9 @@ export default function Formats() {
                     </div>
                     <div className={styles.sectionContent}>
                         <div className={styles.bullet}>Постановочный шоу-номер для любой вашей концепции</div>
-                        <div className={styles.bullet}>Welcome — насыщение события персонажами</div>
-                        <div className={styles.bullet}>Оригинальный сюжет, созданный под вас</div>
+                        <div className={styles.bullet}>Разработка и постановка Welcome</div>
+                        <div className={styles.bullet}>Насыщение события персонажами,
+                            поддерживающими повествование</div>
                     </div>
                 </div>
             </div>

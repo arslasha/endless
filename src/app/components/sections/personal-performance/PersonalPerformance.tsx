@@ -10,7 +10,7 @@ export default function PersonalPerformance() {
                 <div className={styles.text_container}>
                     <div className={styles.pageTitle}>
                         <span className={styles.pageNumber}>01</span>{' '}
-                        ПЕРСОНАЛЬНЫЙ СПЕКТАКЛЬ
+                        ФОРМАТЫ
                     </div>
 
                     <div className={styles.sections}>
