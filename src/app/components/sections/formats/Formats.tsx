@@ -1,7 +1,6 @@
 'use client';
 
 import styles from './style.module.css';
-import SlideWrapper from '@/components/SlideWrapper/SlideWrapper';
 
 export default function Formats() {
     return (
