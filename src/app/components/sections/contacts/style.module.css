@@ -3,6 +3,7 @@
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+    display: flex;
 }
 
 /* Фон */
@@ -18,25 +19,25 @@
 /* Обёртка под все элементы */
 .contactBlock {
     position: relative;
-    z-index: 2;
     display: flex;
+    z-index: 2;
+    justify-content: center;
     flex-direction: column;
     align-items: flex-start;
-    gap: 20px;
+    gap: 30px;
     padding-left: 6vw;
     padding-top: 20vh;
-    width: fit-content;
+    width: 50%;
 }
 
 /* Логотип и подчеркивание */
 .logoWrapper {
     position: relative;
-    width: fit-content;
+    width: 100%;
 }
 
 .logo {
     height: auto;
-    max-width: 370px;
     width: 100%;
 }
 
@@ -50,11 +51,14 @@
 }
 
 /* Телефон */
+.phoneContainer {
+    align-self: flex-end;
+}
 .phone {
-    margin-top: 16px;
+    margin-top: 20px;
     font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    font-weight: 500;
+    font-size: 25px;
+    font-weight: 300;
     color: white;
     text-decoration: none;
     transition: all 0.3s ease;
@@ -70,9 +74,10 @@
 
 /* Надпись Time to show */
 .signature {
-    font-family: 'Bon Vivant', 'Bonheur Royale', cursive;
-    font-size: 70px;
+    font-family: "Mrs Saint Delafield", cursive;
+    font-style: italic;
+    font-size: 120px;
     line-height: 81px;
     color: #172146;
-    margin-top: 30px;
+    align-self: flex-end;
 }

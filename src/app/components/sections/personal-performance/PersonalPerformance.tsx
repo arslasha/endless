@@ -1,11 +1,9 @@
 'use client';
 
 import styles from './style.module.css';
-import SlideWrapper from '@/components/SlideWrapper/SlideWrapper';
 
 export default function PersonalPerformance() {
     return (
-        <SlideWrapper>
             <div className={styles.container}>
                 <div className={styles.bg} />
 
@@ -56,6 +54,5 @@ export default function PersonalPerformance() {
                     </div>
                 </div>
             </div>
-        </SlideWrapper>
     );
 }

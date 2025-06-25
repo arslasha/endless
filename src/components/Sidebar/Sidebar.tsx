@@ -1,89 +1,87 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import styles from './Sidebar.module.css';
-import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
 const navItems = [
-    { title: 'Форматы', path: '/formats' },
-    { title: 'Персональный спектакль', path: '/personal-performance' },
-    { title: 'Малая форма', path: '/small-format' },
-    { title: 'Endless - это ...', path: '/about' },
-    { title: 'Ваше событие', path: '/your-event' },
-    { title: 'Киноформат', path: '/cinema-format' },
-    { title: 'Резюме', path: '/resume' },
-    { title: 'Контакты', path: '/contacts' },
+    { title: 'Форматы', id: 'formats' },
+    { title: 'Персональный спектакль', id: 'personal-performance' },
+    { title: 'Малая форма', id: 'small-format' },
+    { title: 'Endless - это ...', id: 'about' },
+    { title: 'Ваше событие', id: 'your-event' },
+    { title: 'Киноформат', id: 'cinema-format' },
+    { title: 'Резюме', id: 'resume' },
+    { title: 'Контакты', id: 'contacts' },
 ];
 
 export default function Sidebar() {
     const [isOpen, setIsOpen] = useState(false);
-    const router = useRouter();
 
-    const toggleMenu = () => setIsOpen(prev => !prev);
-
-    const goHome = () => {
-        router.push('/');
-        setIsOpen(false);
-    };
+    const closeMenu = () => setIsOpen(false);
 
     return (
-        <div className={styles.sidebarWrapper}>
-            <div className={styles.toggleArea}>
-                {/* Логотип: кликабелен, ведёт на главную */}
-                <div className={styles.logo} onClick={goHome}>
-                    <Image
-                        src="/icons/endless-logo.svg"
-                        alt="Endless Logo"
-                        width={100}
-                        height={100}
-                        priority
-                        style={{ cursor: 'pointer', height: 'auto', width: '100px' }}
-                    />
+        <>
+            <header className={styles.sidebarWrapper}>
+                {/* Логотип */}
+                <div className={styles.logoWrapper}>
+                    <a href="#home">
+                        <Image
+                            src="/icons/endless-logo.svg"
+                            alt="Endless Logo"
+                            width={100}
+                            height={60}
+                            priority
+                        />
+                    </a>
                 </div>
 
-                {/* Кнопка меню */}
-                <button className={styles.menuButton} onClick={toggleMenu}>
+                {/* Навигация — только на больших экранах */}
+                <nav className={styles.navLinks}>
+                    {navItems.map((item, index) => (
+                        <a
+                            key={index}
+                            href={`#${item.id}`}
+                            className={styles.link}
+                        >
+                            {item.title}
+                        </a>
+                    ))}
+                </nav>
+
+                {/* Кнопка меню — только на мобилках */}
+                <button
+                    className={styles.menuButton}
+                    onClick={() => setIsOpen(!isOpen)}
+                    aria-label="Toggle menu"
+                >
                     <Image
                         src={isOpen ? '/icons/close-icon.svg' : '/icons/menu-icon.svg'}
-                        alt="Menu Toggle"
+                        alt="menu toggle"
                         width={24}
                         height={24}
                     />
                 </button>
-            </div>
+            </header>
 
-            <AnimatePresence>
-                {isOpen && (
-                    <motion.nav
-                        className={styles.navMenu}
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.4 }}
-                    >
-                        <ul>
-                            {navItems.map((item, index) => (
-                                <li key={item.path}>
-                                    <button
-                                        className={styles.navItem}
-                                        onClick={() => {
-                                            router.push(item.path);
-                                            setIsOpen(false);
-                                        }}
-                                    >
-                                        <span className={styles.title}>{item.title}</span>
-                                        <span className={styles.number}>
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                                    </button>
-                                </li>
-                            ))}
-                        </ul>
-                    </motion.nav>
-                )}
-            </AnimatePresence>
-        </div>
+            {/* Мобильное меню */}
+            {isOpen && (
+                <nav className={styles.mobileMenu}>
+                    <ul>
+                        {navItems.map((item, index) => (
+                            <li key={index}>
+                                <a
+                                    href={`#${item.id}`}
+                                    onClick={closeMenu}
+                                    className={styles.mobileLink}
+                                >
+                                    {item.title}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
+            )}
+        </>
     );
 }

@@ -1,0 +1,158 @@
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Фоновое изображение */
+.bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background: #0f0f0f url('/images/your-event/bg_event.png') no-repeat center center;
+    z-index: 0;
+}
+
+/* Левая верхняя */
+.topLeft {
+    position: absolute;
+    top: 2vh;
+    left: 2vw;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 2;
+}
+
+.topLeftText {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    color: white;
+}
+
+.moon {
+    width: 80px;
+    height: 80px;
+    background: url('/images/your-event/moon.svg') no-repeat center center;
+    background-size: contain;
+}
+
+@media (max-width: 768px) {
+    .moon {
+        display: none;
+    }
+}
+
+/* Центральная секция */
+.centerRow {
+    z-index: 2;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5rem;
+    width: 85vw;
+    display: flex;
+    position: relative;
+    top: 40%;
+    left: 10vw;
+}
+
+.centerItem {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 120px;
+}
+
+.centerNumber {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 80px;
+    background: var(--text-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.centerText {
+    font-size: 20px;
+    font-weight: 300;
+    color: white;
+    height: 46px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Левая нижняя секция */
+.bottomLeft {
+    position: absolute;
+    bottom: 5vh;
+    left: 10vw;
+    width: 45vw;
+    font-family: 'Inter', sans-serif;
+    font-style: italic;
+    font-weight: 350;
+    font-size: 30px;
+    line-height: 1.4;
+    background: radial-gradient(50% 230.59% at 50% 50%, #A97211, #F4E077);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    z-index: 2;
+}
+
+/* Правая нижняя секция */
+.bottomRight {
+    position: absolute;
+    bottom: 5vh;
+    right: 5vw;
+    width: 20vw;
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    color: white;
+    text-align: right;
+    z-index: 2;
+}
+
+/* Адаптив */
+
+@media screen and (max-width: 1340px) {
+    .centerRow {
+        gap: 2rem;
+    }
+    .bottomRight {
+        width: 40vw;
+    }
+}
+@media screen and (max-width: 768px) {
+    .centerRow {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: flex-start;
+        top: 30%;
+        gap: 1rem;
+    }
+
+    .centerItem {
+        width: auto;
+    }
+
+    .bottomLeft,
+    .bottomRight {
+        position: relative;
+        left: auto;
+        right: auto;
+        width: 80vw;
+        padding: 1rem;
+        text-align: left;
+    }
+
+    .bottomRight {
+        text-align: left;
+        margin-top: 2rem;
+    }
+}

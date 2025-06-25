@@ -59,7 +59,7 @@
 .sectionNumber {
     font-family: 'Inter', sans-serif;
     font-style: italic;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 6.6vw; /* адаптивно от 64px */
     line-height: 77px;
     background: var(--text-gold);
@@ -73,7 +73,7 @@
 .sectionTitle {
     font-family: 'Inter', sans-serif;
     font-style: italic;
-    font-weight: 500;
+    font-weight: 300;
     font-size: 6.6vw;
     line-height: 77px;
     color: #fff;
@@ -84,6 +84,7 @@
     display: flex;
     flex-direction: column;
     gap: 7px;
+    font-weight: 300;
     padding-left: 147px;
 }
 
@@ -94,5 +95,9 @@
     font-size: 2vw;
     color: #fff;
     max-width: 511px;
-    font-weight: 400;
+    font-weight: 300;
+}
+
+.boldLetter {
+    font-weight: 600;
 }

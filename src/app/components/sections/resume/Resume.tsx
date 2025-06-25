@@ -1,11 +1,9 @@
 'use client';
 
 import styles from './style.module.css';
-import SlideWrapper from '@/components/SlideWrapper/SlideWrapper';
 
 export default function ResumePage() {
     return (
-        <SlideWrapper>
             <div className={styles.container}>
                 <div className={styles.bg} />
 
@@ -44,6 +42,5 @@ export default function ResumePage() {
                     </div>
                 </div>
             </div>
-        </SlideWrapper>
     );
 }

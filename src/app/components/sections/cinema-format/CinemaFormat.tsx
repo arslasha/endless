@@ -1,11 +1,10 @@
 'use client';
 
 import styles from './style.module.css';
-import SlideWrapper from '@/components/SlideWrapper/SlideWrapper';
+
 
 export default function CinemaFormat() {
     return (
-        <SlideWrapper>
             <div className={styles.container}>
                 <div className={styles.bg} />
 
@@ -51,6 +50,5 @@ export default function CinemaFormat() {
                     </div>
                 </div>
             </div>
-        </SlideWrapper>
     );
 }

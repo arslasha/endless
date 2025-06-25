@@ -1,11 +1,9 @@
 'use client';
 
 import styles from './style.module.css';
-import SlideWrapper from '@/components/SlideWrapper/SlideWrapper';
 
 export default function About() {
     return (
-        <SlideWrapper>
             <div className={styles.container}>
                 <div className={styles.bg_about}/>
 
@@ -67,6 +65,5 @@ export default function About() {
                     </div>
                 </div>
             </div>
-        </SlideWrapper>
     );
 }
