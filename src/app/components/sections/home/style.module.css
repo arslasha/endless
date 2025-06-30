@@ -1,48 +1,89 @@
-/*src/app/home/style.module.css*/
-
 .container {
-    display: flex;
     position: relative;
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-/* Фон на весь экран */
+/* Фоновое изображение */
 .background {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background: url('/images/home/backgound-image.svg') no-repeat center center;
     background-size: cover;
     z-index: 0;
 }
 
-/* Левая область, занимает всё кроме маски */
+/* Левая часть (логотип) */
+.logo {
+    width: 100%; /* фиксированная ширина */
+    height: 323px; /* фиксированная высота */
+    background: url('/images/home/Logo.svg') no-repeat center center;
+    background-size: contain;
+    aspect-ratio: 456 / 323;
+    flex-shrink: 0;
+}
+
+/* Обёртка слева */
 .left {
-    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 2;
+    flex: 1;
+    min-width: 0;
 }
 
-/* Логотип — центрируется в доступной области и масштабируется пропорционально */
-.logo {
-    width: 100%;
-    aspect-ratio: 456 / 323;
-    background: url('/images/home/Logo.svg') no-repeat center center;
-    background-size: contain;
+/* Обёртка маски — для управления позицией */
+.maskWrapper {
+    position: relative;
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 1;
 }
 
-/* Маска справа, не сжимается, всегда видна */
+/* Сама маска */
 .mask {
     width: auto;
     height: 100%;
     aspect-ratio: 423 / 542;
     background: url('/images/home/mask-image.png') no-repeat right center;
     background-size: contain;
-    z-index: 1;
+}
+
+/* --- Мобильная адаптация --- */
+@media (max-width: 1200px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .left {
+        width: 100%;
+        height: 226px;
+    }
+
+    .logo {
+        width: 100%;
+        height: 226px;
+    }
+
+    .maskWrapper {
+        width: 100%;
+        height: 50vh;
+        justify-content: flex-end;
+        align-items: flex-end;
+        display: flex;
+    }
+
+    .mask {
+        height: 100%;
+        width: auto;
+        background-position: right bottom;
+    }
 }
