@@ -15,44 +15,47 @@ const navItems = [
     { title: 'Контакты', id: 'contacts' },
 ];
 
+import { useEffect } from 'react';
+
 export default function Sidebar() {
     const [isOpen, setIsOpen] = useState(false);
 
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = 'hidden'; // Блокируем скролл страницы
+        } else {
+            document.body.style.overflow = ''; // Возвращаем скролл страницы
+        }
+        // Очистка при размонтировании
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [isOpen]);
+
+    const toggleMenu = () => setIsOpen((prev) => !prev);
     const closeMenu = () => setIsOpen(false);
 
     return (
         <>
-            <header className={styles.sidebarWrapper}>
+            {/* Шапка */}
+            <header
+                className={`${styles.sidebarWrapper} ${isOpen ? styles.open : ''}`}
+            >
                 {/* Логотип */}
-                <div className={styles.logoWrapper}>
-                    <a href="#home">
-                        <Image
-                            src="/icons/endless-logo.svg"
-                            alt="Endless Logo"
-                            width={100}
-                            height={60}
-                            priority
-                        />
-                    </a>
-                </div>
+                <a href="#home" className={styles.logoWrapper}>
+                    <Image
+                        src="/icons/endless-logo.svg"
+                        alt="Endless Logo"
+                        width={165}
+                        height={40}
+                        priority
+                    />
+                </a>
 
-                {/* Навигация — только на больших экранах */}
-                <nav className={styles.navLinks}>
-                    {navItems.map((item, index) => (
-                        <a
-                            key={index}
-                            href={`#${item.id}`}
-                            className={styles.link}
-                        >
-                            {item.title}
-                        </a>
-                    ))}
-                </nav>
-
-                {/* Кнопка меню — только на мобилках */}
+                {/* Кнопка меню */}
                 <button
                     className={styles.menuButton}
-                    onClick={() => setIsOpen(!isOpen)}
+                    onClick={toggleMenu}
                     aria-label="Toggle menu"
                 >
                     <Image
@@ -64,24 +67,24 @@ export default function Sidebar() {
                 </button>
             </header>
 
-            {/* Мобильное меню */}
-            {isOpen && (
-                <nav className={styles.mobileMenu}>
-                    <ul>
-                        {navItems.map((item, index) => (
-                            <li key={index}>
-                                <a
-                                    href={`#${item.id}`}
-                                    onClick={closeMenu}
-                                    className={styles.mobileLink}
-                                >
-                                    {item.title}
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
-                </nav>
-            )}
+            {/* Выпадающее меню — всегда в DOM, управляется классом .open */}
+            <div className={`${styles.dropdownMenu} ${isOpen ? styles.open : ''}`}>
+                <div className={styles.menuContent}>
+                    {navItems.map((item, index) => (
+                        <a
+                            key={item.id}
+                            href={`#${item.id}`}
+                            className={styles.menuItem}
+                            onClick={closeMenu}
+                        >
+                            <span className={styles.itemText}>{item.title}</span>
+                            <span className={styles.itemNumber}>
+                {String(index + 1).padStart(2, '0')}
+              </span>
+                        </a>
+                    ))}
+                </div>
+            </div>
         </>
     );
 }

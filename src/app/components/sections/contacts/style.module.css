@@ -26,7 +26,7 @@
     align-items: flex-start;
     gap: 30px;
     padding-left: 6vw;
-    width: 90%;
+    width: 50%;
 }
 
 /* Логотип и подчеркивание */
@@ -79,4 +79,13 @@
     line-height: 81px;
     color: #172146;
     align-self: flex-end;
+}
+
+@media screen and (max-width: 800px) {
+    .contactBlock {
+        width: 90%;
+    }
+    .signature {
+        font-size: 100px;
+    }
 }
