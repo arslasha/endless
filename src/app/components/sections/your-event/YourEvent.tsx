@@ -6,7 +6,7 @@ export default function YourEvent() {
     const features = [
         { number: '01', text: 'ДЕТСКИЙ\nПРАЗДНИК' },
         { number: '02', text: 'ДЕНЬ\nРОЖДЕНИЯ' },
-        { number: '03', text: 'КОРПОРОТИВ' },
+        { number: '03', text: 'КОРПОРАТИВ' },
         { number: '04', text: 'СВАДЬБА' },
         { number: '05', text: 'ЮБИЛЕЙ' },
         { number: '06', text: 'ИММЕРСИВНЫЙ\nУЖИН' },
