@@ -4,13 +4,18 @@ import { useEffect, useState, useRef } from 'react';
 import styles from '../style.module.css';
 import VideoCard from './VideoCard';
 
+type Video = {
+    title: string;
+    url: string;
+};
+
 export default function VideoGallery() {
-    const [videos, setVideos] = useState<any[]>([]);
+    const [videos, setVideos] = useState<Video[]>([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
     const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-    // Загрузка видео
+    // Загрузка видео из JSON
     useEffect(() => {
         fetch('/videos.json')
             .then(res => res.json())
@@ -18,7 +23,7 @@ export default function VideoGallery() {
             .catch(err => console.error('Ошибка загрузки видео:', err));
     }, []);
 
-    // Автоматическое переключение
+    // Автопрокрутка
     useEffect(() => {
         if (!isPaused && videos.length > 1) {
             intervalRef.current = setInterval(() => {
@@ -26,11 +31,18 @@ export default function VideoGallery() {
             }, 6000); // каждые 6 секунд
         }
 
-        return () => clearInterval(intervalRef.current as NodeJS.Timeout);
+        return () => {
+            if (intervalRef.current) clearInterval(intervalRef.current);
+        };
     }, [isPaused, videos]);
 
-    const next = () => setCurrentIndex((prev) => (prev + 1) % videos.length);
-    const prev = () => setCurrentIndex((prev) => (prev - 1 + videos.length) % videos.length);
+    const next = () => {
+        setCurrentIndex((prev) => (prev + 1) % videos.length);
+    };
+
+    const prev = () => {
+        setCurrentIndex((prev) => (prev - 1 + videos.length) % videos.length);
+    };
 
     const handleMouseEnter = () => setIsPaused(true);
     const handleMouseLeave = () => setIsPaused(false);

@@ -1,19 +1,40 @@
 'use client';
 
+import { useEffect, useRef } from 'react';
 import styles from '../style.module.css';
 
-export default function VideoCard({
-                                      video,
-                                      onPlay,
-                                      onPause
-                                  }: {
-    video: any;
+type Video = {
+    title: string;
+    url: string;
+};
+
+interface VideoCardProps {
+    video: Video;
     onPlay: () => void;
     onPause: () => void;
-}) {
+}
+
+export default function VideoCard({ video, onPlay, onPause }: VideoCardProps) {
+    const iframeRef = useRef<HTMLIFrameElement | null>(null);
+
+    useEffect(() => {
+        const handleMessage = (e: MessageEvent) => {
+            if (typeof e.data === 'string') {
+                if (e.data.includes('play')) onPlay();
+                if (e.data.includes('pause')) onPause();
+            }
+        };
+
+        window.addEventListener('message', handleMessage);
+        return () => {
+            window.removeEventListener('message', handleMessage);
+        };
+    }, [onPlay, onPause]);
+
     return (
         <div className={styles.card}>
             <iframe
+                ref={iframeRef}
                 src={`${video.url}?autoplay=0`}
                 width="100%"
                 height="100%"
@@ -21,18 +42,6 @@ export default function VideoCard({
                 allowFullScreen
                 loading="lazy"
                 className={styles.iframe}
-                onLoad={() => {
-                    const iframe = document.querySelector('iframe');
-                    if (iframe) {
-                        const win = iframe.contentWindow;
-                        if (win) {
-                            window.addEventListener('message', (e) => {
-                                if (typeof e.data === 'string' && e.data.includes('play')) onPlay();
-                                if (typeof e.data === 'string' && e.data.includes('pause')) onPause();
-                            });
-                        }
-                    }
-                }}
             />
             <div className={styles.caption}>{video.title}</div>
         </div>
