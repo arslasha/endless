@@ -42,12 +42,12 @@ export default function Sidebar() {
                 className={`${styles.sidebarWrapper} ${isOpen ? styles.open : ''}`}
             >
                 {/* Логотип */}
-                <a href="#home" className={styles.logoWrapper}>
+                <a href="#home" className={styles.logoWrapper} >
                     <Image
                         src="/icons/endless-logo.svg"
                         alt="Endless Logo"
-                        width={165}
-                        height={40}
+                        width={130}
+                        height={30}
                         priority
                     />
                 </a>
