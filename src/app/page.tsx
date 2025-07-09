@@ -25,7 +25,7 @@ export default function Page() {
                 <section id="your-event"><SlideWrapper><YourEvent/></SlideWrapper></section>
                 <section id="cinema-format"><SlideWrapper><CinemaFormat/></SlideWrapper></section>
                 <section id="resume"><SlideWrapper><Resume/></SlideWrapper></section>
-                <section id="contacts"><SlideWrapper><VideoGalleryPage/></SlideWrapper></section>
+                <section id="video"><SlideWrapper><VideoGalleryPage/></SlideWrapper></section>
                 <section id="contacts"><SlideWrapper><Contacts/></SlideWrapper></section>
             </main>
         </>
