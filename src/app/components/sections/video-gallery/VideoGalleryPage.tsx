@@ -8,7 +8,6 @@ export default function VideoGallerySection() {
         <div className={styles.container} id="video-gallery">
             <div className={styles.bg} />
             <div className={styles.content}>
-                <h1 className={styles.title}>Наши проекты</h1>
                 <VideoGallery />
             </div>
         </div>
