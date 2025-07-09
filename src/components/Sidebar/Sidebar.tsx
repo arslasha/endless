@@ -46,8 +46,8 @@ export default function Sidebar() {
                     <Image
                         src="/icons/endless-logo.svg"
                         alt="Endless Logo"
-                        width={130}
-                        height={30}
+                        width={140}
+                        height={45}
                         priority
                     />
                 </a>
